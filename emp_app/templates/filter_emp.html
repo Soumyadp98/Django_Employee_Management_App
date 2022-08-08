@@ -1,0 +1,33 @@
+{% extends 'HeaderFooter.html' %} {% comment %} to fetch navbar from base.html {% endcomment %}
+
+{% block title %}Filter Employee{% endblock title %}{% comment %} to change title section {% endcomment %}
+
+{% block body %} {% comment %}for body{% endcomment %}
+
+
+<div class="container">
+    <h1>Filter Employee Details!</h1>
+    <form action="/filter_emp" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">First Name/Last Name</label>
+            <input type="text" name="name" value="{{name}}" class="form-control">
+        </div>
+            {% comment %} <div class="form-group">
+            <label for="exampleInputEmail1">Phone</label>
+            <input type="text" name="phone" value="{{phone}}" class="form-control">
+            </div> {% endcomment %}
+            <div class="form-group">
+                <label for="exampleInputEmail1">Department</label>
+                <input type="text" name="dept" value="{{dept}}" class="form-control">
+            </div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Role</label>
+            <input type="text" name="role" value="{{role}}" class="form-control">
+            </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+{% endblock body %}

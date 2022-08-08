@@ -1,0 +1,32 @@
+{% extends 'HeaderFooter.html' %} {% comment %} to fetch navbar from base.html {% endcomment %}
+
+{% block title %}Remove Employee{% endblock title %}{% comment %} to change title section {% endcomment %}
+
+{% comment %}for body{% endcomment %}
+  {% block body %}
+    <div class="container">
+        <div class="container">
+        
+            <a href="/all_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View All Employee</a>
+            <a href="/add_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add An Employee</a>
+            <a href="/remove_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Remove An Employee</a>
+            <a href="/filter_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Filter Employee</a>
+    
+        </div>
+        <hr>
+        <h1>Remove an Employee</h1>
+        <hr>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choose an Employee to remove
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              {% for emp in emps %}
+              <li><a class="dropdown-item" href="/remove_emp/{{emp.id}}">{{emp.id}} {{emp.first_name}} {{emp.last_name}} {{emp.dept.name}} {{emp.role.name}} {{emp.salary}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+    </div>
+
+
+    {% endblock body %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends 'HeaderFooter.html' %} {% comment %} to fetch navbar from base.html {% endcomment %}
+
+{% block title %}Add Employee{% endblock title %}{% comment %} to change title section {% endcomment %}
+
+{% block body %} {% comment %}for body{% endcomment %}
+    <div class="container">
+        <div class="container">
+        
+            <a href="/all_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View All Employee</a>
+            <a href="/add_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add An Employee</a>
+            <a href="/remove_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Remove An Employee</a>
+            <a href="/filter_emp" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Filter Employee</a>
+    
+        </div>
+        <hr>
+        <h1>Add an Employee</h1>
+        <hr>
+        <form action="/add_emp" method="POST">
+          {% csrf_token %}
+            <div class="form-group">
+              <label for="exampleInputEmail1">First Name</label>
+              <input type="text" name="first_name" value="{{first_name}}" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Last Name</label>
+                <input type="text" name="last_name" value="{{last_name}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Phone</label>
+                <input type="text" name="phone" value="{{phone}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Role</label>
+                <input type="text" name="role" value="{{role}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Department</label>
+                <input type="text" name="dept" value="{{dept}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Salary</label>
+                <input type="salary" name="salary" value="{{salary}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">bonus</label>
+                <input type="salary" name="bonus" value="{{bonus}}" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Hiring Date</label>
+                <input type="date" name="hire_date" value="{{hire_date}}" class="form-control">
+              </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+    </div>
+
+    {% endblock body %}
